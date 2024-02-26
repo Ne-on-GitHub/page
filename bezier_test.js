@@ -1,9 +1,9 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  pointer.set("s1",100,100,24,color(0,255,255));
-  pointer.set("s2",200,100,24,color(0,0,255));
-  pointer.set("s3",100,200,24,color(255,0,255));
-  pointer.set("s4",200,200,24,color(255,0,0));
+  pointer.set("s1",100,150,24,color(0,255,255));
+  pointer.set("s2",150,100,24,color(0,0,255));
+  pointer.set("s3",200,100,24,color(255,0,255));
+  pointer.set("s4",250,200,24,color(255,0,0));
 }
 function draw() {
   background(192);
