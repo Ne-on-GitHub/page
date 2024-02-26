@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(1024,576);
+  createCanvas(windowWidth, windowHeight);
   pointer.set("s1",100,100,24,color(0,255,255));
   pointer.set("s2",200,100,24,color(0,0,255));
   pointer.set("s3",100,200,24,color(255,0,255));
