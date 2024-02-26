@@ -12,3 +12,6 @@ function draw() {
   stroke(0);
   bezier(pointer.of("s1").x,pointer.of("s1").y,pointer.of("s2").x,pointer.of("s2").y,pointer.of("s3").x,pointer.of("s3").y,pointer.of("s4").x,pointer.of("s4").y);
 }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
