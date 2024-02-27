@@ -17,7 +17,7 @@ function draw() {
   if(pressed1==3)fill(128,64,128);
   if(pressed1==4){
     fill(0);
-    link("https://ne-on-github.github.io/page/ovagod/");}
+    link("https://ne-on-github.github.io/page/ovagod.html");}
   stroke(255,0,255);
   square(300,100,100);
 }
