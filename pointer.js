@@ -8,34 +8,24 @@ pointer.draw();
 class pointers{
   constructor(){
     this.point=[];
-    this.dict=[];
-  }
-  
+    this.dict=[];}
   set(st,x,y,s,c){
-    this.point.push(new setpoint(x,y,s,c));
-    this.dict.push(st);
-  }
-  
+    this.point.push(new setpoint(st,x,y,s,c));
+    this.dict.push(st);}
   of(s){
     for(let n=0;n<this.dict.length;n++)if(s==this.dict[n])return this.point[n];
-    return null;
-  }
-  
+    return null;}
   draw(){
     let pressonly=false;
+    for(let n=this.point.length-1;n>=0;n--){
+      this.point[n].draw();}
     for(let n=0;n<this.point.length;n++){
-      this.point[n].draw();
-    }
-    for(let n=0;n<this.point.length;n++){
-      if(this.point[n].pressed){
+      if(prs.of(this.point[n].name).pressed){
         if(!pressonly)pressonly=true;
-        else this.point[n].pressed=false;
-      }
-    }
-  }
-}
+        else prs.of(this.point[n].name).pressed=false;}}}}
 class setpoint{
-  constructor(x,y,s,c){
+  constructor(name,x,y,s,c){
+    this.name=name;
     this.x=x;
     this.y=y;
     this.px=x;
@@ -44,34 +34,30 @@ class setpoint{
     this.c=c;
     this.nc=color(red(c)/2,green(c)/2,blue(c)/2);
     this.pressed=false;
-    this.delayPressed=false;
-  }
+    this.delayPressed=false;}
   draw(){
     noStroke();
-    if(mouseIsPressed&&!this.delayPressed){
-      if(sq(mouseX-this.x)+sq(mouseY-this.y)<sq(this.s/2.0)){
-        this.pressed=true;
-        this.px=this.x-mouseX;
-        this.py=this.y-mouseY;
-      }
-      this.delayPressed=true;
-    }
-    if(!mouseIsPressed&&this.delayPressed){
-      this.pressed=false;
-      this.delayPressed=false;
-    }
-    if(this.pressed){
-      fill(this.nc);
-      this.x=mouseX+this.px;
-      this.y=mouseY+this.py;
-    }else{
-      if(sq(mouseX-this.x)+sq(mouseY-this.y)<sq(this.s/2.0)){
-        fill(this.c);
-      }else{
-        fill(red(this.c),green(this.c),blue(this.c),128);
-      }
-    }
-    circle(this.x,this.y,this.s);
-  }
-}
+    let x=this.x;
+    let y=this.y;
+    let s=this.s;
+    let px=this.px;
+    let py=this.py;
+    let c=this.c;
+    let nc=this.nc;
+    let p=prs.of(this.name).in(sq(mouseX-x)+sq(mouseY-y)<sq(s/2.0));
+    if(p==0)fill(red(c),green(c),blue(c),128);
+    if(p==1)fill(c);
+    if(p==2){
+      fill(nc);
+      px=x-mouseX;
+      py=y-mouseY;}
+    if(p==3){
+      fill(nc);
+      x=mouseX+px;
+      y=mouseY+py;}
+    circle(x,y,s);
+    this.x=x;
+    this.y=y;
+    this.px=px;
+    this.py=py;}}
 let pointer=new pointers();
