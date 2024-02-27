@@ -1,0 +1,50 @@
+class quaternion{
+  constructor(r,i,j,k){
+    if(arguments.length==1){
+      this.r=r.r;
+      this.i=r.i;
+      this.j=r.j;
+      this.k=r.k;}
+    if(arguments.length==4){
+    this.r=r;
+    this.i=i;
+    this.j=j;
+    this.k=k;
+    }
+  }
+  mul(qr,qi,qj,qk){
+    if(arguments.length==1){
+      qr=qr.r;
+      qi=qr.i;
+      qj=qr.j;
+      qk=qr.k;}
+    ar=this.r;
+    ai=this.i;
+    aj=this.j;
+    ak=this.k;
+    this.r=ar*qr-ai*qi-aj*qj-ak*qk;
+    this.i=ar*qi+ai*qr+aj*qk-ak*qj;
+    this.j=ar*qj-ai*qk+aj*qr+ak*qi;
+    this.k=ar*qk+ai*qj-aj*qi+ak*qr;
+    return this;
+  }
+  add(qr,qi,qj,qk){
+    if(arguments.length==1){
+      qr=qr.r;
+      qi=qr.i;
+      qj=qr.j;
+      qk=qr.k;}
+    r+=qr;
+    i+=qi;
+    j+=qj;
+    k+=qk;
+    return this;
+  }
+  sc(s){
+    r*=s;
+    i*=s;
+    j*=s;
+    k*=s;
+    return this;
+  }
+}
