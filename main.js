@@ -91,6 +91,9 @@ function draw() {
   stroke(128);
   image(grf1,backX-w1/2+84,backY+444);
   text("Only one symbol for everything in this world.",boosfeitwX,boosfeitwY);
+  text("back:"+backX+","+backY,width-100,400);
+  text("prem:"+premX+","+premY,width-100,416);
+  text("aprem:"+apremX+","+apremY,width-100,432);
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeighttextAscent()+textDescent());
