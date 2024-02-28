@@ -89,7 +89,7 @@ function draw() {
     fill(255);
     link("https://ne-on-github.github.io/page/ovagod/");}
   stroke(128);
-  image(grf1,oosfeitwX-w1/2+52,oosfeitwY-56);
+  image(grf1,backX-w1/2+84,backY+444);
   text("Only one symbol for everything in this world.",boosfeitwX,boosfeitwY);
 }
 function windowResized() {
