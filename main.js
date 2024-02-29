@@ -60,7 +60,7 @@ class index{
   draw(){
     background(128,0,0);
     touchmove();
-    oosfeitw();
+    //oosfeitw();
   }
   touchmove(){
     let pmouseIsPressed=this.pmouseIsPressed;
