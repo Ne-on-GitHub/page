@@ -8,6 +8,7 @@ let apremX;
 let apremY;
 let backX=0;
 let backY=0;
+let pmouseIsPressed;
 let grf1;
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -39,7 +40,8 @@ function draw() {
   background(64);
   noFill();
   stroke(255);
-  if(mouseIsPressed){
+  if(!mouseIsPressed)pmouseIsPressed=false;
+  if(pmouseIsPressed){
     backX=mouseX-premX;
     backY=mouseY-premY;
     backX+=apremX;
@@ -49,6 +51,7 @@ function draw() {
     apremY=backY;
     premX=mouseX;
     premY=mouseY;
+    if(mouseIsPressed)pmouseIsPressed=true;
   }
   if(backX<=-512)backX=-512;
   if(backX>=511)backX=511;
