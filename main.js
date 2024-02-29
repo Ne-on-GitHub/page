@@ -12,6 +12,7 @@ let pmouseIsPressed;
 let grf1;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  document.addEventListener("touchmove",scrollKill,{passive:false})
   textAlign(LEFT,TOP);
   grf1=createGraphics(512,512);
   grf1.loadPixels();
@@ -100,6 +101,9 @@ function windowResized() {
 }
 function link(url, winName, options) {
   winName && open(url, winName, options) || (location = url);
+}
+function scrollKill(e) {
+  e.preventDefault();
 }
 class oosfeitwBall{
   constructor(x,y,sx,sy){
