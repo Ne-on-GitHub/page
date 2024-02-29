@@ -87,7 +87,7 @@ class index{
     if(backX>=511)backX=511;
     if(backY<=-288)backY=-288;
     if(backY>=287)backY=287;
-    this.pmouseIsPressed=pmouseIsPrezzed;
+    this.pmouseIsPressed=pmouseIsPressed;
     this.backX=backX
     this.backY=backY
     this.premX=premX
