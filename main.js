@@ -1,7 +1,8 @@
-let index=new index();
+let index;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   document.addEventListener("touchmove",scrollKill,{passive:false});
+  index=new anind();
   index.setup();
 }
 function draw(){
@@ -16,7 +17,7 @@ function link(url, winName, options) {
 function scrollKill(e) {
   e.preventDefault();
 }
-class index{
+class anind{
   constructor(){
     this.w1;
     this.oosfeitwX=32;
@@ -59,8 +60,8 @@ class index{
   }
   draw(){
     background(128,0,0);
-    touchmove();
-    oosfeitw();
+    this.touchmove();
+    this.oosfeitw();
   }
   touchmove(){
     let pmouseIsPressed=this.pmouseIsPressed;
@@ -129,7 +130,7 @@ class index{
       if(oosfeitwB[n].life<=0){
         oosfeitwB.splice(n,1);
         n--;
-      }else oosfeitwB[n].draw();
+      }else oosfeitwB[n].draw(backX,backY);
     }
     textSize(16);
     let pressed1=prs.of("squarelink1").in(boosfeitwX<=mouseX&&mouseX<=boosfeitwX+w1&&boosfeitwY<=mouseY&&mouseY<=boosfeitwY+textAscent()+textDescent());
@@ -160,10 +161,10 @@ class oosfeitwBall{
     this.life=40;
     this.size=5;
   }
-  draw(){
+  draw(x,y){
     noStroke();
     fill(0,this.life/20*255);
-    circle(this.x+backX,this.y+backY,this.size);
+    circle(this.x+x,this.y+y,this.size);
     this.x+=this.sx*2;
     this.y+=this.sy*2;
     this.size+=0.5;
