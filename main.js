@@ -58,18 +58,18 @@ class index{
     this.grf1=grf1;
   }
   draw(){
-    background(128);
+    background(128,0,0);
     touchmove();
     oosfeitw();
   }
   touchmove(){
     let pmouseIsPressed=this.pmouseIsPressed;
     let backX=this.backX;
-    let backX=this.backY;
-    let backX=this.premX;
-    let backX=this.premY;
-    let backX=this.apremX;
-    let backX=this.apremY;
+    let backY=this.backY;
+    let premX=this.premX;
+    let premY=this.premY;
+    let apremX=this.apremX;
+    let apremY=this.apremY;
     if(!mouseIsPressed)pmouseIsPressed=false;
     if(pmouseIsPressed){
       backX=mouseX-premX;
