@@ -60,7 +60,7 @@ class index{
   draw(){
     background(128,0,0);
     touchmove();
-    //oosfeitw();
+    oosfeitw();
   }
   touchmove(){
     let pmouseIsPressed=this.pmouseIsPressed;
@@ -88,21 +88,21 @@ class index{
     if(backY<=-288)backY=-288;
     if(backY>=287)backY=287;
     this.pmouseIsPressed=pmouseIsPressed;
-    this.backX=backX
-    this.backY=backY
-    this.premX=premX
-    this.premY=premY
-    this.apremX=apremX
-    this.apremY=apremY
+    this.backX=backX;
+    this.backY=backY;
+    this.premX=premX;
+    this.premY=premY;
+    this.apremX=apremX;
+    this.apremY=apremY;
   }
   oosfeitw(){
-    let w1=this.w1
-    let oosfeitwX=this.oosfeitwX
-    let oosfeitwY=this.oosfeitwY
-    let oosfeitwB=this.oosfeitwB
-    let backX=this.backX
-    let backY=this.backY
-    let grf1=this.grf1
+    let w1=this.w1;
+    let oosfeitwX=this.oosfeitwX;
+    let oosfeitwY=this.oosfeitwY;
+    let oosfeitwB=this.oosfeitwB;
+    let backX=this.backX;
+    let backY=this.backY;
+    let grf1=this.grf1;
     noFill();
     stroke(255);
     w1=textWidth("Only one symbol for everything in this world.");
