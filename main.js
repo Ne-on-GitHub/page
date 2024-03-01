@@ -238,7 +238,16 @@ class ovagod{
       fill(a,128);
       if(a<128)a++;
       noStroke();
-      text("Wow! This world is full of mysteries ;-)",width/2,height/2);
+      let lx=(width-textWidth("Wow! This world is full of mysteries ;-)"))/2;
+      let ly=textAscent()+textDescent();
+      let pressedtwifom=prs.of("twifomlink").in(lx<=mouseX&&mouseX<=lx+textWidth("Wow! This world is full of mysteries")&&(width-ly)/2<=mouseY&&mouseY<=(width+ly)/2);
+      if(pressedtwifom==0)fill(0,64,192,a/2);
+      if(pressedtwifom==1)fill(0,64,192,a);
+      if(pressedtwifom==3)fill(0,32,86,a);
+      if(pressedtwifom==4)page=0;
+      text("Wow! This world is full of mysteries    ",width/2,height/2);
+      fill(128,a/2);
+      text("                                     ;-)",width/2,height/2);
     }
     frame++;
     this.a=a;
