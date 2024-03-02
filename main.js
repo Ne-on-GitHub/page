@@ -33,7 +33,7 @@ function scrollKill(e) {
 }
 class index{
   constructor(){
-    setup();
+    this.setup();
   }
   setup(){
     this.w1;
