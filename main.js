@@ -48,11 +48,6 @@ class index{
     this.frame;
   }
   setup(){
-    this.oosfeitwX=32;
-    this.oosfeitwY=500;
-    this.oosfeitwB=[];
-    this.backX=0;
-    this.backY=0;
     textAlign(LEFT,TOP);
     let grf1=createGraphics(512,512);
     grf1.loadPixels();
