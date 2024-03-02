@@ -49,7 +49,6 @@ class index{
     this.pmouseIsPressed;
     this.grf1;
     this.frame;
-    this.constructor();
     textAlign(LEFT,TOP);
     let grf1=createGraphics(512,512);
     grf1.loadPixels();
