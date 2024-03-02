@@ -33,7 +33,19 @@ function scrollKill(e) {
 }
 class index{
   constructor(){
-    this.setup();
+    this.w1;
+    this.oosfeitwX=32;
+    this.oosfeitwY=500;
+    this.oosfeitwB=[];
+    this.premX;
+    this.premY;
+    this.apremX;
+    this.apremY;
+    this.backX=0;
+    this.backY=0;
+    this.pmouseIsPressed;
+    this.grf1;
+    this.frame;
   }
   setup(){
     this.w1;
