@@ -1,5 +1,5 @@
 let page=0;
-let paged=65536;
+let paged=0;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   document.addEventListener("touchmove",scrollKill,{passive:false});
@@ -33,6 +33,9 @@ function scrollKill(e) {
 }
 class index{
   constructor(){
+    setup();
+  }
+  setup(){
     this.w1;
     this.oosfeitwX=32;
     this.oosfeitwY=500;
@@ -46,8 +49,6 @@ class index{
     this.pmouseIsPressed;
     this.grf1;
     this.frame;
-  }
-  setup(){
     this.constructor();
     textAlign(LEFT,TOP);
     let grf1=createGraphics(512,512);
