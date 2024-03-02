@@ -48,19 +48,11 @@ class index{
     this.frame;
   }
   setup(){
-    this.w1;
     this.oosfeitwX=32;
     this.oosfeitwY=500;
     this.oosfeitwB=[];
-    this.premX;
-    this.premY;
-    this.apremX;
-    this.apremY;
     this.backX=0;
     this.backY=0;
-    this.pmouseIsPressed;
-    this.grf1;
-    this.frame;
     textAlign(LEFT,TOP);
     let grf1=createGraphics(512,512);
     grf1.loadPixels();
