@@ -48,6 +48,7 @@ class index{
     this.frame;
   }
   setup(){
+    this.constructor();
     textAlign(LEFT,TOP);
     let grf1=createGraphics(512,512);
     grf1.loadPixels();
