@@ -1,5 +1,5 @@
 let page=0;
-let paged=0;
+let paged=65536;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   document.addEventListener("touchmove",scrollKill,{passive:false});
