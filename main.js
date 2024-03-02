@@ -1,26 +1,29 @@
 let page=0;
 let paged=65536;
+let lag=5;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   document.addEventListener("touchmove",scrollKill,{passive:false});
   //a.setup();
 }
 function draw(){
-  if(page==0){
-    if(paged!=0){
-      a.setup();
-      paged=0;}
-    a.draw();}
-  if(page==1){
-    if(paged!=1){
-      b.setup();
-      paged=1;}
-    b.draw();}
-  if(page==2){
-    if(paged!=2){
-      c.setup();
-      paged=2;}
-    c.draw();}
+  if(lag>0)lag--;
+  else{
+    if(page==0){
+      if(paged!=0){
+        a.setup();
+        paged=0;}
+      a.draw();}
+    else if(page==1){
+      if(paged!=1){
+        b.setup();
+        paged=1;}
+      b.draw();}
+    else if(page==2){
+      if(paged!=2){
+        c.setup();
+        paged=2;}
+      c.draw();}}
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeighttextAscent()+textDescent());
@@ -55,8 +58,8 @@ class index{
       let n=0;
       let w=grf1.width*8;
       let h=grf1.height*4;
-      for(let y=0;y<grf1.height*4;y++){
-        for(let x=0;x<grf1.width*8;x+=4){
+      for(let y=0;y<grf1.height*2*pixelDensity();y++){
+        for(let x=0;x<grf1.width*4*pixelDensity();x+=4){
           let norm=sqrt(sq(w/4))/255;
           let a=sqrt(sq(x/2-w/4)+sq(y*8-h/2))/norm;
           a=255-a;
@@ -153,12 +156,14 @@ class index{
     }
     textSize(16);
     let pressed1=prs.of("squarelink1").in(boosfeitwX<=mouseX&&mouseX<=boosfeitwX+w1&&boosfeitwY<=mouseY&&mouseY<=boosfeitwY+textAscent()+textDescent());
-    if(pressed1==0)fill(0,64,192,128);
-    if(pressed1==1)fill(0,64,192);
-    if(pressed1==3)fill(0,32,86);
+    stroke(255)
+    if(pressed1==0)fill(64,128,255,128);
+    if(pressed1==1)fill(64,128,255);
+    if(pressed1==3)fill(32,64,128);
     if(pressed1==4){
       fill(255);
-      page=1;}
+      page=1;
+      lag=30;}
     stroke(128);
     image(grf1,backX-w1/2+84,backY+444);
     text("Only one symbol for everything in this world.",boosfeitwX,boosfeitwY);
@@ -217,7 +222,7 @@ class oosfeitwBall{
 }
 class ovagod{
   constructor(){
-    this.a=64;
+    this.a=0;
     this.frame;
   }
   draw(){
@@ -234,26 +239,30 @@ class ovagod{
     textSize(16);
     pop();
     textAlign(CENTER,CENTER);
-    if(frame>1500){
-      fill(a,128);
-      if(a<128)a++;
+    if(frame>700){
+      if(a<2000)a+=0.02;
       noStroke();
       let lx=textWidth("Wow! This world is full of mysteries ;-)");
       let ly=textAscent()+textDescent();
       let pressedtwifom=prs.of("twifomlink").in((width-lx)/2<=mouseX&&mouseX<=(width+lx)/2&&(height-ly)/2<=mouseY&&mouseY<=(height+ly)/2);
-      if(pressedtwifom==0)fill(0,64,192,a/2);
-      if(pressedtwifom==1)fill(0,64,192,a);
-      if(pressedtwifom==3)fill(0,32,86,a);
-      if(pressedtwifom==4)page=0;
+      if(a<32)pressedtwifom=0;
+      if(pressedtwifom==0)fill(255,a/2);
+      if(pressedtwifom==1)fill(64,128,255,a/2);
+      if(pressedtwifom==2||pressedtwifom==3)fill(32,64,128,a/2);
+      if(pressedtwifom==4){
+        fill(255);
+        page=0;
+        lag=60;}
       text("Wow! This world is full of mysteries",width/2-textWidth(" ;-)")/2,height/2);
-      fill(128,a/2);
-      text((" ;-)",width+lx-textWidth(" ;-)"))/2,height/2);
+      fill(255,a/2);
+      text(" ;-)",(width+lx-textWidth(" ;-)"))/2,height/2);
     }
     frame++;
     this.a=a;
     this.frame=frame;
   }
   setup(){
+    this.a=0;
     this.frame=0;
   }
 }
