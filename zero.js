@@ -18,24 +18,21 @@ class index{
   }
   setup(){
     textAlign(LEFT,TOP);
-    let grf1=createGraphics(512,512);
+    let grf1=createGraphics(768,768);
     grf1.loadPixels();
     {
-      let n=0;
-      let w=grf1.width*8;
-      let h=grf1.height*4;
-      for(let y=0;y<grf1.height*2*pixelDensity();y++){
-        for(let x=0;x<grf1.width*4*pixelDensity();x+=4){
-          let norm=sqrt(sq(w/4))/255;
-          let a=sqrt(sq(x/2-w/4)+sq(y*8-h/2))/norm;
-          a=255-a;
-          a*=2;
-          if(a>255)a=255;
-          grf1.pixels[n]=0
-          grf1.pixels[n+1]=0
-          grf1.pixels[n+2]=0
-          grf1.pixels[n+3]=a;
-          n+=4;
+      let w=grf1.width*pixelDensity();
+      let h=grf1.height*pixelDensity();
+      for(let y=0;y<h;y++){
+        for(let x=0;x<w;x++){
+          let r=sqrt(sq(w/2-x)/16+sq(h/2-y))*2048/w;
+          if(r>255)r=255;
+          r=255-r;
+          let n=4*(y*w+x);
+          grf1.pixels[n]=r/2;
+          grf1.pixels[n+1]=0;
+          grf1.pixels[n+2]=0;
+          grf1.pixels[n+3]=r;
         }
       }
     }
@@ -48,7 +45,7 @@ class index{
     this.frame=0;
   }
   draw(){
-    background(128,0,0);
+    background(0,0,0);
     this.touchmove();
     this.oosfeitw();
     this.skeleneond();
@@ -143,7 +140,7 @@ class index{
       page=1;
       lag=30;}
     stroke(128);
-    image(grf1,backX-w1/2+84,backY+444);
+    image(grf1,backX-w1/2-48,backY+126);
     text("Only one symbol for everything in this world.",boosfeitwX,boosfeitwY);
     this.w1=w1;
     this.oosfeitwX=oosfeitwX;
@@ -189,7 +186,7 @@ class oosfeitwBall{
   }
   draw(x,y){
     noStroke();
-    fill(0,this.life/20*255);
+    fill(128,0,0,this.life/20*255);
     circle(this.x+x,this.y+y,this.size);
     this.x+=this.sx*2;
     this.y+=this.sy*2;

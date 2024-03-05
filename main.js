@@ -30,7 +30,7 @@ function draw(){
       c.draw();}}
 }
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeighttextAscent()+textDescent());
+  resizeCanvas(windowWidth, windowHeight);
 }
 function link(url, winName, options) {
   winName && open(url, winName, options) || (location = url);
